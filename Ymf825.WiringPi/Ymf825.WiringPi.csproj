@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Unosquare.Raspberry.IO" Version="0.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Ymf825\Ymf825.csproj" />
   </ItemGroup>
 
