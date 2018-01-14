@@ -45,10 +45,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ymf825\Ymf825.csproj">
-      <Project>{7b92175f-edaf-42bf-88a7-d113c1c40aff}</Project>
-      <Name>Ymf825</Name>
-    </ProjectReference>
+    <PackageReference Include="Ymf825">
+      <Version>1.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
