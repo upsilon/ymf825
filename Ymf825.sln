@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ymf825", "Ymf825\Ymf825.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestApp", "ConsoleTestApp\ConsoleTestApp.csproj", "{D42202FF-F8E3-4E37-BD10-C002A1AC39D6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ymf825.WiringPi", "Ymf825.WiringPi\Ymf825.WiringPi.csproj", "{86B23AB5-31BE-4289-903B-476D313EA6CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestAppRaspberryPi", "ConsoleTestAppRaspberryPi\ConsoleTestAppRaspberryPi.csproj", "{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{D42202FF-F8E3-4E37-BD10-C002A1AC39D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D42202FF-F8E3-4E37-BD10-C002A1AC39D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D42202FF-F8E3-4E37-BD10-C002A1AC39D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B23AB5-31BE-4289-903B-476D313EA6CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B23AB5-31BE-4289-903B-476D313EA6CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B23AB5-31BE-4289-903B-476D313EA6CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B23AB5-31BE-4289-903B-476D313EA6CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

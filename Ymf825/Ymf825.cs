@@ -20,7 +20,7 @@ namespace Ymf825
         /// <summary>
         /// YMF825 との通信に使われる SPI インタフェースのオブジェクトを取得します。
         /// </summary>
-        public Ymf825Spi SpiInterface { get; }
+        public ISpi SpiInterface { get; }
 
         /// <summary>
         /// このオブジェクトが破棄されたかを表す真偽値を取得します。
@@ -90,6 +90,12 @@ namespace Ymf825
         {
             SpiInterface = new Ymf825Spi(spiDeviceIndex, csPin);
             SpiInterface.SetCsTargetPin(csPin);
+            CurrentTargetChip = AvailableChip;
+        }
+
+        protected Ymf825(ISpi spiDevice)
+        {
+            SpiInterface = spiDevice;
             CurrentTargetChip = AvailableChip;
         }
 

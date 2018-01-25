@@ -6,7 +6,7 @@ namespace Ymf825.IO
     /// YMF825 と SPI による通信を行うための機能を提供します。
     /// </summary>
     /// <inheritdoc />
-    public class Ymf825Spi : Spi
+    public class Ymf825Spi : Spi, ISpi
     {
         #region -- Constructors --
 
