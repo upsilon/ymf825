@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ymf825.WiringPi", "Ymf825.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestAppRaspberryPi", "ConsoleTestAppRaspberryPi\ConsoleTestAppRaspberryPi.csproj", "{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ymf825.Pigpio", "Ymf825.Pigpio\Ymf825.Pigpio.csproj", "{00507258-32D6-4F13-BD75-3A00A43A7A15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AC5A44C-ACE6-47CC-B09D-4CF258EEAF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
