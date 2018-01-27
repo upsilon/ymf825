@@ -8,19 +8,37 @@ namespace Ymf825.IO
     {
         public bool IsDisposed { get; private set; }
 
-        private SpiChannel SpiChannel { get; set; }
+        public TargetChip TargetChip
+        {
+            get => this._targetChip;
+            set
+            {
+                if (value != TargetChip.Board0 && value != TargetChip.Board1)
+                    throw new ArgumentOutOfRangeException(nameof(value));
+
+                this._targetChip = value;
+            }
+        }
+
+        private SpiChannel SpiChannel
+            => this.TargetChip == TargetChip.Board0 ? this.Spi0 : this.Spi1;
+
+        private SpiChannel Spi0 { get; set; }
+        private SpiChannel Spi1 { get; set; }
 
         private GpioPin PinSS { get; set; }
         private GpioPin PinRST { get; set; }
 
+        private TargetChip _targetChip;
+
         public PigpioSpi(PigpioClient pi)
-            : this(pi.Spi[0], pi.Gpio[25], pi.Gpio[16])
+            : this(pi.Spi[0], pi.Spi[1], pi.Gpio[25], pi.Gpio[16])
         {
         }
 
-        public PigpioSpi(SpiChannel spi, GpioPin pinSS, GpioPin pinRST)
+        public PigpioSpi(SpiChannel spi0, SpiChannel spi1, GpioPin pinSS, GpioPin pinRST)
         {
-            this.InitializeSpi(spi);
+            this.InitializeSpi(spi0, spi1);
             this.InitializeGpio(pinSS, pinRST);
         }
 
@@ -29,14 +47,14 @@ namespace Ymf825.IO
             if (this.IsDisposed)
                 return;
 
-            this.SpiChannel.Dispose();
+            this.Spi0.Dispose();
+            this.Spi1.Dispose();
 
             this.IsDisposed = true;
         }
 
         public void SetCsTargetPin(byte pin)
-        {
-        }
+            => this.TargetChip = (TargetChip)(pin >> 3);
 
         public void Write(byte command, byte data)
         {
@@ -113,12 +131,15 @@ namespace Ymf825.IO
             this.PinRST.Write(GpioPinLevel.High);
         }
 
-        private void InitializeSpi(SpiChannel spi)
+        private void InitializeSpi(SpiChannel spi0, SpiChannel spi1)
         {
             const int frequency = 10_000_000;
 
-            this.SpiChannel = spi;
-            this.SpiChannel.Open(frequency, 0);
+            this.Spi0 = spi0;
+            this.Spi0.Open(frequency, 0);
+
+            this.Spi1 = spi1;
+            this.Spi1.Open(frequency, 0);
         }
 
         private void InitializeGpio(GpioPin pinSS, GpioPin pinRST)

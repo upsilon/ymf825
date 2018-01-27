@@ -21,7 +21,9 @@ namespace ConsoleTestAppRaspberryPi
 
             Ymf825.Ymf825 ymf825 = null;
 
-            switch (options.Value.Type)
+            var (type, _, _, board) = options.Value;
+
+            switch (type)
             {
                 case "pigpio":
                     {
@@ -32,7 +34,7 @@ namespace ConsoleTestAppRaspberryPi
                     break;
                 case "pigpiod":
                     {
-                        var (_, hostname, port) = options.Value;
+                        var (_, hostname, port, _) = options.Value;
                         var pigpioApi = new PigpioSocketApi(new PigpioSocket(hostname, port));
                         var spiDevice = new PigpioSpi(new PigpioClient(pigpioApi));
                         ymf825 = new Ymf825Pigpio(spiDevice);
@@ -47,15 +49,18 @@ namespace ConsoleTestAppRaspberryPi
                     break;
             }
 
+            ymf825.ChangeTargetDevice((TargetChip)board);
+
             var driver = new Ymf825Driver(ymf825);
             SamplePlay(driver);
         }
 
-        private static (string Type, string Hostname, int Port)? ParseOptions(string[] args)
+        private static (string Type, string Hostname, int Port, int Board)? ParseOptions(string[] args)
         {
             var type = (string)null;
             var hostname = "localhost";
             var port = 8888;
+            var board = 1;
             var help = false;
 
             var options = new OptionSet
@@ -63,6 +68,7 @@ namespace ConsoleTestAppRaspberryPi
                 { "t|type=", "Specify connection type (wiringpi, pigpio, pigpiod) [required]", x => type = x },
                 { "h|host=", "The hostname of pigpiod [default: localhost]", x => hostname = x },
                 { "p|port=", "The port number for pigpiod connection [default: 8888]", (int x) => port = x },
+                { "b|board=", "The board number [default: 1]", (int x) => board = x },
                 { "help", "Show this help message", _ => help = true },
             };
 
@@ -86,7 +92,7 @@ namespace ConsoleTestAppRaspberryPi
                 return null;
             }
 
-            return (type, hostname, port);
+            return (type, hostname, port, board);
         }
 
         private static void SamplePlay(Ymf825Driver driver)
