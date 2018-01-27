@@ -2,14 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>Ymf825</RootNamespace>
+    <RootNamespace>Pigpio</RootNamespace>
     <LangVersion>latest</LangVersion>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Pigpio\Pigpio.csproj" />
-    <ProjectReference Include="..\Ymf825\Ymf825.csproj" />
   </ItemGroup>
 
 </Project>

@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestAppRaspberryPi",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ymf825.Pigpio", "Ymf825.Pigpio\Ymf825.Pigpio.csproj", "{00507258-32D6-4F13-BD75-3A00A43A7A15}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pigpio", "Pigpio\Pigpio.csproj", "{58449D06-11EA-441F-BCED-9182E24E91C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pigpio.Socket", "Pigpio.Socket\Pigpio.Socket.csproj", "{352E3646-BA87-4FCD-A712-6209FEDEDC82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00507258-32D6-4F13-BD75-3A00A43A7A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58449D06-11EA-441F-BCED-9182E24E91C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58449D06-11EA-441F-BCED-9182E24E91C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58449D06-11EA-441F-BCED-9182E24E91C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58449D06-11EA-441F-BCED-9182E24E91C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{352E3646-BA87-4FCD-A712-6209FEDEDC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{352E3646-BA87-4FCD-A712-6209FEDEDC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{352E3646-BA87-4FCD-A712-6209FEDEDC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{352E3646-BA87-4FCD-A712-6209FEDEDC82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

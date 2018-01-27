@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Pigpio;
+using Pigpio.Api;
+using Pigpio.IO;
+using System;
 using System.Threading;
 using Ymf825;
 using Ymf825.IO;
@@ -11,8 +14,13 @@ namespace ConsoleTestAppRaspberryPi
         {
             Console.WriteLine("Image type: {0}bit", Environment.Is64BitProcess ? "64" : "32");
 
+#if false
             using (var spiDevice = new WiringPiSpi())
             using (var ymf825 = new Ymf825WiringPi(spiDevice))
+#else
+            using (var socket = new PigpioSocket("localhost", 8888))
+            using (var spiDevice = new PigpioSpi(new PigpioClient(new PigpioSocketApi(socket))))
+#endif
             {
                 var driver = new Ymf825Driver(ymf825);
                 driver.EnableSectionMode();
