@@ -18,8 +18,10 @@ namespace ConsoleTestAppRaspberryPi
             using (var spiDevice = new WiringPiSpi())
             using (var ymf825 = new Ymf825WiringPi(spiDevice))
 #else
-            using (var socket = new PigpioSocket("localhost", 8888))
-            using (var spiDevice = new PigpioSpi(new PigpioClient(new PigpioSocketApi(socket))))
+//            using (var socket = new PigpioSocket("localhost", 8888))
+//            using (var spiDevice = new PigpioSpi(new PigpioClient(new PigpioSocketApi(socket))))
+            using (var spiDevice = new PigpioSpi(new PigpioClient(new PigpioNativeApi())))
+            using (var ymf825 = new Ymf825Pigpio(spiDevice))
 #endif
             {
                 var driver = new Ymf825Driver(ymf825);

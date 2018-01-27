@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Pigpio.Native\Pigpio.Native.csproj" />
     <ProjectReference Include="..\Pigpio.Socket\Pigpio.Socket.csproj" />
     <ProjectReference Include="..\Pigpio\Pigpio.csproj" />
     <ProjectReference Include="..\Ymf825.Pigpio\Ymf825.Pigpio.csproj" />
