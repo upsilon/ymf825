@@ -2,13 +2,21 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <StartupObject>ConsoleTestAppRaspberryPi.Program</StartupObject>
     <LangVersion>latest</LangVersion>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mono.Options" Version="5.3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pigpio.Native\Pigpio.Native.csproj" />
+    <ProjectReference Include="..\Pigpio.Socket\Pigpio.Socket.csproj" />
+    <ProjectReference Include="..\Pigpio\Pigpio.csproj" />
+    <ProjectReference Include="..\Ymf825.Pigpio\Ymf825.Pigpio.csproj" />
     <ProjectReference Include="..\Ymf825.WiringPi\Ymf825.WiringPi.csproj" />
   </ItemGroup>
 
