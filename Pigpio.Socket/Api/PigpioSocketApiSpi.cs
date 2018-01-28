@@ -1,6 +1,10 @@
 ﻿using Pigpio.IO;
 using System;
+#if !NETSTANDARD2_0
 using System.Buffers.Binary;
+#else
+using Pigpio.Polyfills;
+#endif
 
 namespace Pigpio.Api
 {
@@ -8,7 +12,11 @@ namespace Pigpio.Api
     {
         public int SpiOpen(int channel, int baud, int flags)
         {
+#if !NETSTANDARD2_0
             Span<byte> ext = stackalloc byte[4];
+#else
+            Span<byte> ext = new byte[4];
+#endif
 
             BinaryPrimitives.WriteInt32LittleEndian(ext.Slice(0, 4), flags);
 

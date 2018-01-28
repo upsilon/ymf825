@@ -1,5 +1,9 @@
 ﻿using System;
+#if !NETSTANDARD2_0
 using System.Buffers.Binary;
+#else
+using Pigpio.Polyfills;
+#endif
 
 namespace Pigpio.IO
 {

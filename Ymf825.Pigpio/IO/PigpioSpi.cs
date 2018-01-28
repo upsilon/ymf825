@@ -62,7 +62,11 @@ namespace Ymf825.IO
             {
                 this.PinSS.Write(GpioPinLevel.Low);
 
+#if !NETSTANDARD2_0
                 Span<byte> buffer = stackalloc byte[2];
+#else
+                Span<byte> buffer = new byte[2];
+#endif
 
                 buffer[0] = command;
                 buffer[1] = data;
@@ -104,7 +108,11 @@ namespace Ymf825.IO
             {
                 this.PinSS.Write(GpioPinLevel.Low);
 
+#if !NETSTANDARD2_0
                 Span<byte> buffer = stackalloc byte[1];
+#else
+                Span<byte> buffer = new byte[1];
+#endif
                 buffer[0] = command;
 
                 this.SpiChannel.Write(buffer);

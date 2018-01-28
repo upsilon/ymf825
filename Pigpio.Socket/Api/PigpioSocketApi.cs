@@ -1,6 +1,10 @@
 ﻿using Pigpio.IO;
 using System;
+#if !NETSTANDARD2_0
 using System.Buffers.Binary;
+#else
+using Pigpio.Polyfills;
+#endif
 
 namespace Pigpio.Api
 {
@@ -19,7 +23,11 @@ namespace Pigpio.Api
 
         public void Send(PigpioCommand cmd, int p1, int p2, int p3, Span<byte> ext)
         {
+#if !NETSTANDARD2_0
             Span<byte> buffer = stackalloc byte[16];
+#else
+            Span<byte> buffer = new byte[16];
+#endif
 
             var request = new PigpioMessage(buffer, ext);
             request.SetAll(cmd, p1, p2, p3);
@@ -32,7 +40,11 @@ namespace Pigpio.Api
 
         public int Receive(Span<byte> ext)
         {
+#if !NETSTANDARD2_0
             Span<byte> buffer = stackalloc byte[16];
+#else
+            Span<byte> buffer = new byte[16];
+#endif
 
             var response = new PigpioMessage(buffer, ext);
             this.socket.Receive(response);

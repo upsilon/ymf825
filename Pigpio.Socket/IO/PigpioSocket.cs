@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Net.Sockets;
+#if NETSTANDARD2_0
+using Pigpio.Polyfills;
+#endif
 
 namespace Pigpio.IO
 {
